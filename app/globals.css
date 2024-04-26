@@ -83,7 +83,7 @@
 }
 
 #menu-items {
-  margin-left: clamp(4rem, 20vw, 48rem);
+  margin-left: clamp(2rem, 10vw, 24rem);
   position: relative;
   z-index: 2;
 }
@@ -122,7 +122,7 @@
 }
 
 #menu-background-image {
-  background-image: url('https://images.unsplash.com/photo-1492496913980-501348b61469?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2574&q=80');
+  background-image: url('https://images.unsplash.com/photo-1629896403970-b6e2d52c47c6?q=80&w=1510&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-position: center 40%;
   background-size: 110vmax;
   height: 100%;
@@ -155,12 +155,11 @@
 }
 
 .menu-item {
-  color: white;
   cursor: pointer;
   display: block;
-  font-family: 'Ibarra Real Nova', serif;
   font-size: clamp(3rem, 8vw, 8rem);
   padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
   text-decoration: none;
   transition: opacity 400ms ease;
+  z-index: 50;
 }
