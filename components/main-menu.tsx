@@ -3,8 +3,57 @@ import { useNavMenuStore } from '@/app/store/navMenuStore'
 import { Button } from './ui/button'
 import { Menu, X } from 'lucide-react'
 
-export default function MainMenu() {
+type MenuItemProps = {
+  title: string
+  imageUrl: string
+  href: string
+}
+
+const MenuItem = ({ title, imageUrl, href }: MenuItemProps) => {
+  return (
+    <div className='flex gap-3'>
+      <a
+        href={href}
+        className='m-0 w-full text-xl uppercase text-muted-foreground no-underline'>
+        <h2>{title}</h2>
+        <div
+          className='mt-3 aspect-[1.8/1] h-[320px] w-full rounded-md bg-red-400 bg-cover bg-center object-cover'
+          style={{ backgroundImage: `url(${imageUrl})` }}></div>
+      </a>
+    </div>
+  )
+}
+
+const MainMenu = () => {
   const { isOpen, toggle } = useNavMenuStore()
+
+  const menuItems: MenuItemProps[] = [
+    {
+      title: 'Title 1',
+      imageUrl: 'https://example.com/image1.jpg',
+      href: '/page1',
+    },
+    {
+      title: 'Title 2',
+      imageUrl: 'https://example.com/image2.jpg',
+      href: '/page2',
+    },
+    {
+      title: 'Title 3',
+      imageUrl: 'https://example.com/image3.jpg',
+      href: '/page3',
+    },
+    {
+      title: 'Title 4',
+      imageUrl: 'https://example.com/image4.jpg',
+      href: '/page4',
+    },
+    {
+      title: 'Title 5',
+      imageUrl: 'https://example.com/image5.jpg',
+      href: '/page5',
+    },
+  ]
 
   return (
     <>
@@ -18,71 +67,21 @@ export default function MainMenu() {
         />
 
         <nav className='mx-6 grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6'>
-          <div
-            className={`${
-              isOpen
-                ? ''
-                : ' -translate-y-[130%] transition duration-500 ease-in-out'
-            }`}>
-            <div className='flex gap-3'>
-              <a className='m-0 w-full text-xl uppercase text-muted-foreground no-underline'>
-                <h2>Title 1</h2>
-                <div className='mt-3 aspect-[1.8/1] h-[320px] w-full rounded-md bg-red-400 bg-[url(https://images.unsplash.com/photo-1597382048067-7923725a1524?q=80&w=1523&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover bg-center object-cover'></div>
-              </a>
+          {menuItems.map((item, index) => (
+            <div
+              key={index}
+              className={`${
+                isOpen
+                  ? ''
+                  : ' -translate-y-[130%] transition duration-500 ease-in-out'
+              }`}>
+              <MenuItem
+                title={item.title}
+                imageUrl={item.imageUrl}
+                href={item.href}
+              />
             </div>
-          </div>
-          <div
-            className={`${
-              isOpen
-                ? ''
-                : ' -translate-y-[130%] transition duration-500 ease-in-out'
-            }`}>
-            <div className='flex gap-3'>
-              <a className='m-0 w-full text-xl uppercase text-muted-foreground no-underline'>
-                <h2>Title 1</h2>
-                <div className='mt-3 aspect-[1.8/1] h-[320px] w-full rounded-md bg-red-400 bg-[url(https://images.unsplash.com/photo-1597382048067-7923725a1524?q=80&w=1523&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover bg-center object-cover'></div>
-              </a>
-            </div>
-          </div>
-          <div
-            className={`${
-              isOpen
-                ? ''
-                : ' -translate-y-[130%] transition duration-500 ease-in-out'
-            }`}>
-            <div className='flex gap-3'>
-              <a className='m-0 w-full text-xl uppercase text-muted-foreground no-underline'>
-                <h2>Title 1</h2>
-                <div className='mt-3 aspect-[1.8/1] h-[320px] w-full rounded-md bg-red-400 bg-[url(https://images.unsplash.com/photo-1597382048067-7923725a1524?q=80&w=1523&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover bg-center object-cover'></div>
-              </a>
-            </div>
-          </div>
-          <div
-            className={`${
-              isOpen
-                ? ''
-                : ' -translate-y-[130%] transition duration-500 ease-in-out'
-            }`}>
-            <div className='flex gap-3'>
-              <a className='m-0 w-full text-xl uppercase text-muted-foreground no-underline'>
-                <h2>Title 1</h2>
-                <div className='mt-3 aspect-[1.8/1] h-[320px] w-full rounded-md bg-red-400 bg-[url(https://images.unsplash.com/photo-1597382048067-7923725a1524?q=80&w=1523&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover bg-center object-cover'></div>
-              </a>
-            </div>
-          </div>
-          <div
-            className={`${
-              isOpen
-                ? ''
-                : ' -translate-y-[130%] transition duration-500 ease-in-out'
-            }`}>
-            <div className='flex gap-3'>
-              <a className='m-0 w-full text-xl uppercase text-muted-foreground no-underline'>
-                <h2>Title 1</h2>
-                <div className='mt-3 aspect-[1.8/1] h-[320px] w-full rounded-md bg-red-400 bg-[url(https://images.unsplash.com/photo-1597382048067-7923725a1524?q=80&w=1523&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] bg-cover bg-center object-cover'></div>
-              </a>
-            </div>
-          </div>
+          ))}
         </nav>
 
         <Button
@@ -111,3 +110,5 @@ export default function MainMenu() {
     </>
   )
 }
+
+export default MainMenu
